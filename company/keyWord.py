@@ -58,12 +58,3 @@ def search_company_keyworks(str):
         print u'所在城市：%s' % i
     print u'语义分析去关键词后：%s' % new_str
     return new_str, place_name_list
-
-
-
-
-str = u'掌赢科技欢迎最棒的安卓 iOS~'
-name, place_list = search_company_keyworks(str)
-print name
-for i in place_list:
-  print i
