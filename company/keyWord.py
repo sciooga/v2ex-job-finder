@@ -60,8 +60,8 @@ def search_company_keyworks(str):
     return new_str, place_name_list
 
 
-#str = u'	#上海# [诺亚财富] 财富管理领域巨头-专注财富金字塔尖客户-低风险创业机会------互联网金融'
-#search_company_keyworks(str)
+
+
 str = u'掌赢科技欢迎最棒的安卓 iOS~'
 name, place_list = search_company_keyworks(str)
 print name
