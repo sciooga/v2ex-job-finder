@@ -1,7 +1,7 @@
 # v2ex-job-finder
 帮助 V2EXer 更方便的寻找工作
 
-分词功能使用[结巴中文分词](https://github.com/fxsjy/jieba)根据 V2EX 的情况更新了部分词条
+分词功能使用[结巴中文分词](https://github.com/fxsjy/jieba)(根据 V2EX 的情况更新了部分词条)
 
 目前支持提取标题内的公司名与公司所在城市(对四字公司名支持不太好)
 
