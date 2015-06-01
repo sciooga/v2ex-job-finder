@@ -40,8 +40,10 @@ PHP
 php
 [pP]ython
 [Rr]uby
+[gG]ithub
 APP
 app
+团队
 大牛
 开发
 科技
