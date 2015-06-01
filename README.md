@@ -49,4 +49,14 @@ for i in place_list:
 #掌赢
 #
 
+str = u'[北京] [创业大街] 西游印（北京）科技有限公司后端开发（.NET）和前端开发招聘全职&实习生'
+name, place_list = search_company_keyworks(str)
+print name
+for i in place_list:
+  print i
+ 
+#<out>(正确)
+#西游印
+#北京
+
 </code></pre>
