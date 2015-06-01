@@ -16,13 +16,12 @@ def search_place_name(str):
     place_name_list = re.findall(place_name, str) or []
     return list(set(place_name_list))
 
-def search_company_name(str):
+def search_company_keyworks(str):
     couple = u'(\[|\]|\【|\】|\『|\』|\「|\」|\(.+?\)|\（.+?\）|\<.+?\>|\《.+?\》)'
     new_str = re.sub(couple, '', str)
     print u'去括号后：%s' % new_str
     new_str = re.sub(u'[~@#$%^&*-=\！\|\\\~\\￥\…]', '', new_str)
     print u'去特殊符号后：%s' % new_str
-    #todo 更高级的去地名功能，如果包含在括号内则删掉所有括号内的内容 未必...
     place_name_list = search_place_name(new_str)
     for i in place_name_list:
         new_str = re.sub(i, '', new_str)
@@ -41,10 +40,10 @@ def search_company_name(str):
         t += line.decode('utf-8').strip('\n')+'|'
     del_key=t[:-1]+')'
     for i in words[::-1]:
-        #print u'词：%s 词性：%s 词长：%d' % (i.word, i.flag, len(i.word))
+        print u'词：%s 词性：%s 词长：%d' % (i.word, i.flag, len(i.word))
         if (re.search(del_key, i.word)):
             new_str = re.sub(i.word, '', new_str)
-        #print u'去关键词后：%s' % new_str
+        print u'去关键词后：%s' % new_str
         if (i.flag in ('r', 'd', 'x', 'uj', 'ul', 'zg', 'ns', 'p', 'q', 'b', 'c', 'u', 'y')):
             new_str = re.sub(i.word, '', new_str)
         elif (i.flag in ('a', 'm', 'v', 'v', 'n', 'vn', 'eng', 'nt', 'nr')):
@@ -55,9 +54,16 @@ def search_company_name(str):
             break
         new_str = re.sub(i, '', new_str)
     print u'原句：%s' % str
+    for i in place_name_list:
+        print u'所在城市：%s' % i
     print u'语义分析去关键词后：%s' % new_str
-    return new_str
+    return new_str, place_name_list
 
 
-str = u'麦考林高薪招聘 PHP 开发工程师'
-search_company_name(str)
+#str = u'	#上海# [诺亚财富] 财富管理领域巨头-专注财富金字塔尖客户-低风险创业机会------互联网金融'
+#search_company_keyworks(str)
+str = u'掌赢科技欢迎最棒的安卓 iOS~'
+name, place_list = search_company_keyworks(str)
+print name
+for i in place_list:
+  print i
